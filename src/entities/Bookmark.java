@@ -3,7 +3,7 @@ package entities;
 public class Bookmark {
 	private long id;
 	private String title;
-	private String profile;
+	private String profileUrl;
 
 //	GETTERS AMD SETTERS
 
@@ -23,12 +23,12 @@ public class Bookmark {
 		this.title = title;
 	}
 
-	public String getProfile() {
-		return profile;
+	public String getProfileUrl() {
+		return profileUrl;
 	}
 
-	public void setProfile(String profile) {
-		this.profile = profile;
+	public void setProfileUrl(String profileUrl) {
+		this.profileUrl = profileUrl;
 	}
 
 }
