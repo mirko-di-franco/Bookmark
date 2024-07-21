@@ -1,12 +1,15 @@
 package managers;
 
+import dao.BookmarkDao;
 import entities.Book;
+import entities.Bookmark;
 import entities.Movie;
 import entities.WebLink;
 
 public class BookmarkManager {
 	// Static private instance of the class itself, created immediately.
 	private static BookmarkManager instance = new BookmarkManager();
+	private static BookmarkDao dao = new BookmarkDao();
 	
 	// Private constructor to prevent creation of new instances from outside.
 	private BookmarkManager() {}
@@ -28,12 +31,14 @@ public class BookmarkManager {
 	}
 	
 	
-	public Book createBook(long id, String title, int publicationYear, String publisher, double amazonRating) {
+	public Book createBook(long id, String title, int publicationYear, String publisher, String[] authors, String genre, double amazonRating) {
 		Book book = new Book();
 		book.setId(id);
 		book.setTitle(title);
 		book.setPublicationYear(publicationYear);
 		book.setPublisher(publisher);
+		book.setAuthors(authors);
+		book.setGenre(genre);
 		book.setAmazonRating(amazonRating);
 		
 		return book;
@@ -53,5 +58,10 @@ public class BookmarkManager {
 		movie.setImdbRating(imdbRating);
 		
 		return movie;
+	}
+	
+	
+	public Bookmark[][] getBookmarks(){
+		return dao.getBookmarks();
 	}
 }

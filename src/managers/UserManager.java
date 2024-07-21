@@ -1,9 +1,13 @@
 package managers;
 
+import dao.UserDao;
 import entities.User;
 
 public class UserManager {
 	private static UserManager istance = new UserManager();
+	private static UserDao dao = new UserDao();
+	
+	
 	private UserManager() {}
 	
 	
@@ -23,5 +27,9 @@ public class UserManager {
 		
 		
 		return user;
+	}
+	
+	public User[] getUsers() {
+		return dao.getUsers();
 	}
 }
