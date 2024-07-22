@@ -3,8 +3,9 @@ package entities;
 import java.util.Arrays;
 
 import constants.BookGenre;
+import partner.Shareable;
 
-public class Book extends Bookmark {
+public class Book extends Bookmark implements Shareable{
 	private int publicationYear;
 	private String publisher;
 	private String[] authors;
@@ -66,6 +67,23 @@ public class Book extends Bookmark {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String getItemData() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("<item>");
+			builder.append("<type>Book</type>");
+			builder.append("<title>").append(getTitle()).append("</title>");
+			builder.append("<authors>").append(String.join(",", authors)).append("</authors>");
+			builder.append("<publisher>").append(publisher).append("</publisher>");
+			builder.append("<publicationYear>").append(publicationYear).append("</publicationYear>");
+			builder.append("<genre>").append(genre).append("</genre>");
+			builder.append("<amazonRating>").append(amazonRating).append("</amazonRating>");
+		builder.append("</item>");
+		
+		return builder.toString();
+		
 	}
 
 }
