@@ -4,6 +4,8 @@ import dao.BookmarkDao;
 import entities.Book;
 import entities.Bookmark;
 import entities.Movie;
+import entities.User;
+import entities.UserBookmark;
 import entities.WebLink;
 
 public class BookmarkManager {
@@ -63,5 +65,13 @@ public class BookmarkManager {
 	
 	public Bookmark[][] getBookmarks(){
 		return dao.getBookmarks();
+	}
+
+	public void saveUserBookmark(User user, Bookmark bookmark) {
+		UserBookmark userBookmark = new UserBookmark();
+		userBookmark.setUser(user);
+		userBookmark.setBookmark(bookmark);
+		
+		dao.saveBookmark(userBookmark);
 	}
 }
