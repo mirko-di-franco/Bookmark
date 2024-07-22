@@ -1,9 +1,12 @@
 package entities;
 
+import constants.KidFriendlyStatus;
+
 public abstract class Bookmark {
 	private long id;
 	private String title;
 	private String profileUrl;
+	private String kidFriendlyStatus = KidFriendlyStatus.UNKNOWN;
 
 //	GETTERS AMD SETTERS
 
@@ -33,4 +36,12 @@ public abstract class Bookmark {
 
 	
 	public abstract boolean isKidFriendlyEligible();
+
+	public String getKidFriendlyStatus() {
+		return kidFriendlyStatus;
+	}
+
+	public void setKidFriendlyStatus(String kidFriendlyStatus) {
+		this.kidFriendlyStatus = kidFriendlyStatus;
+	}
 }
